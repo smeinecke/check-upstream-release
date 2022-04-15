@@ -1,0 +1,14 @@
+name: "Check for new upstream release"
+description: "Check if given upstream repository has newer release version and trigger new release of this repository"
+inputs:
+  remote_repository:
+    description: "Upstream repository to validate"
+    required: true
+  local_repository:
+    description: "Local repository to validate"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: "./check_latest_version.sh '${{ inputs.remote_repository }}' '${{ inputs.local_repository }}'"
+      shell: bash

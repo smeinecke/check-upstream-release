@@ -1,0 +1,14 @@
+name: Test Action
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - id: watch-repository
+        uses: ./
+        with:
+          remote_repository: "HandBrake/HandBrake"
+          local_repository: "smeinecke/handbrake-deb"
