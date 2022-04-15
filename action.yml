@@ -10,5 +10,6 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - uses: actions/checkout@v2
     - run: "./check_latest_version.sh '${{ inputs.remote_repository }}' '${{ inputs.local_repository }}'"
       shell: bash
